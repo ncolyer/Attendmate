@@ -1,11 +1,11 @@
 #!/bin/bash
 today=`date +%Y-%m-%d.%H:%M:%S`
 
-echo "Backing up original configurations..."
+echo -e "Backing up original configurations...\n\n"
 cp /etc/resolv.conf /etc/resolv.conf.$today.bak
 
 # Networking Section
-echo "This auto-provisioning script will allow for the configuration of this new VMs network parameters."
+echo -e "This auto-provisioning script will allow for the configuration of this new VMs network parameters.\n"
 read -p "Is this network DHCP? " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -62,4 +62,4 @@ echo "HOSTNAME=$hostname" >> /etc/sysconfig/network
 service network restart
 service hostname restart
 
-echo "Script completed."
+echo "\nScript completed."
