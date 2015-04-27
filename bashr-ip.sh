@@ -3,7 +3,7 @@ today=`date +%Y-%m-%d.%H:%M:%S`
 
 echo "Backing up original configurations..."
 cp /etc/sysconfig/network-scripts/ifcfg-$ethernet /etc/sysconfig/network-scripts/ifcfg-$ethernet.$today.bak
-cp /etc/resolv.conf/etc/resolv.conf.$today.bak
+cp /etc/resolv.conf /etc/resolv.conf.$today.bak
 
 # Networking Section
 echo "This auto-provisioning script will allow for the configuration of this new VMs network parameters."
