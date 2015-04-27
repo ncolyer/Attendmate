@@ -38,7 +38,7 @@ else
 fi
 
 # DNS Section
-echo -n "Enter the search domain (ex. vtech-shared.local) and press [ENTER]: "
+echo -n "Enter the search domain (ex. host.local) and press [ENTER]: "
 read searchDomain
 echo -n "Enter the primary nameserver (ex. 10.0.2.15) and press [ENTER]: "
 read primaryDns
