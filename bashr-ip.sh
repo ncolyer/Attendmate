@@ -2,7 +2,6 @@
 today=`date +%Y-%m-%d.%H:%M:%S`
 
 echo "Backing up original configurations..."
-cp /etc/sysconfig/network-scripts/ifcfg-$ethernet /etc/sysconfig/network-scripts/ifcfg-$ethernet.$today.bak
 cp /etc/resolv.conf /etc/resolv.conf.$today.bak
 
 # Networking Section
@@ -13,6 +12,7 @@ then
         # DHCP
         echo -n "Enter the device identifer (ex. eth0) and press [ENTER]: "
         read ethernet
+		cp /etc/sysconfig/network-scripts/ifcfg-$ethernet /etc/sysconfig/network-scripts/ifcfg-$ethernet.$today.bak
         dhclient $ethernet
 else
         # Not DHCP
@@ -27,6 +27,7 @@ else
         echo -n "Enter the device network (ex. 10.0.2.0) and press [ENTER]: "
         read network
 
+		cp /etc/sysconfig/network-scripts/ifcfg-$ethernet /etc/sysconfig/network-scripts/ifcfg-$ethernet.$today.bak
         echo "# Generated via auto-provision script by ncolyer@gmail.com" > /etc/sysconfig/network-scripts/ifcfg-$ethernet
         echo "DEVICE=$ethernet" >> /etc/sysconfig/network-scripts/ifcfg-$ethernet
         echo "BOOTPROTO=static" >> /etc/sysconfig/network-scripts/ifcfg-$ethernet
