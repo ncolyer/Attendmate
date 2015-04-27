@@ -1,7 +1,7 @@
 #!/bin/bash
 today=`date +%Y-%m-%d.%H:%M:%S`
 
-echo -e "Backing up original configurations...\n\n"
+echo -e "Backing up original configurations...\n"
 cp /etc/resolv.conf /etc/resolv.conf.$today.bak
 
 # Networking Section
@@ -10,7 +10,7 @@ read -p "Is this network DHCP? " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
         # DHCP
-        echo -n "Enter the device identifer (ex. eth0) and press [ENTER]: "
+        echo -ne "\nEnter the device identifer (ex. eth0) and press [ENTER]: "
         read ethernet
 		cp /etc/sysconfig/network-scripts/ifcfg-$ethernet /etc/sysconfig/network-scripts/ifcfg-$ethernet.$today.bak
         dhclient $ethernet
